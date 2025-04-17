@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WebEdge - Creative Website Design</title>
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --bg-main: #1c1c2b;
+      --bg-secondary: #2e2e48;
+      --text-color: #f5f5f5;
+      --accent: #00d1b2;
+      --text-muted: #ccc;
+    }
+    body.light {
+      --bg-main: #f0f0f0;
+      --bg-secondary: #ffffff;
+      --text-color: #222;
+      --accent: #007c7c;
+      --text-muted: #666;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-main);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      position: relative;
+    }
+    .theme-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    .hero p {
+      max-width: 600px;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+    }
+    .cta-button {
+      background-color: var(--accent);
+      border: none;
+      padding: 1rem 2rem;
+      color: #fff;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .cta-button:hover {
+      background-color: #00b89c;
+    }
+    .cube {
+      width: 100px;
+      height: 100px;
+      margin: 2rem auto;
+      perspective: 600px;
+    }
+    .cube-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: rotate 8s infinite linear;
+    }
+    .cube-face {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: var(--accent);
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #fff;
+    }
+    .front  { transform: translateZ(50px); }
+    .back   { transform: rotateY(180deg) translateZ(50px); }
+    .right  { transform: rotateY(90deg) translateZ(50px); }
+    .left   { transform: rotateY(-90deg) translateZ(50px); }
+    .top    { transform: rotateX(90deg) translateZ(50px); }
+    .bottom { transform: rotateX(-90deg) translateZ(50px); }
+    @keyframes rotate {
+      from { transform: rotateX(0deg) rotateY(0deg); }
+      to { transform: rotateX(360deg) rotateY(360deg); }
+    }
+    .services {
+      padding: 4rem 2rem;
+      background-color: var(--bg-main);
+      text-align: center;
+    }
+    .services h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    .services-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .service-item {
+      background: var(--bg-secondary);
+      padding: 2rem;
+      border-radius: 1rem;
+      width: 250px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .contact {
+      padding: 4rem 2rem;
+      background-color: var(--bg-secondary);
+      text-align: center;
+    }
+    .contact h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact form {
+      max-width: 400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact input,
+    .contact textarea {
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+    }
+    .contact button {
+      background-color: var(--accent);
+      padding: 0.8rem;
+      border: none;
+      color: #fff;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+    footer {
+      padding: 2rem;
+      text-align: center;
+      background: var(--bg-main);
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    <div class="hero" data-aos="fade-up">
+      <h1>WebEdge Design Studio</h1>
+      <p>Crafting beautiful, responsive websites that stand out and drive results.</p>
+      <a href="#contact"><button class="cta-button">Let's Talk</button></a>
+    </div>
+    <div class="cube" data-aos="zoom-in">
+      <div class="cube-inner">
+        <div class="cube-face front">Web</div>
+        <div class="cube-face back">Design</div>
+        <div class="cube-face right">UI</div>
+        <div class="cube-face left">UX</div>
+        <div class="cube-face top">SEO</div>
+        <div class="cube-face bottom">Code</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="services" data-aos="fade-up">
+    <h2>Our Services</h2>
+    <div class="services-list">
+      <div class="service-item" data-aos="fade-right">Website Design</div>
+      <div class="service-item" data-aos="fade-left">Responsive Development</div>
+      <div class="service-item" data-aos="fade-right">Brand Identity</div>
+      <div class="service-item" data-aos="fade-left">SEO Optimization</div>
+      <div class="service-item" data-aos="fade-up">eCommerce Solutions</div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact" data-aos="fade-up">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/your-id-here" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer data-aos="fade-up">
+    &copy; 2025 WebEdge. All rights reserved.
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function toggleTheme() {
+      document.body.classList.toggle('light');
+    }
+  </script>
+
+</body>
+</html>
