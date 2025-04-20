@@ -1,0 +1,234 @@
+:root {
+  --bg-main: linear-gradient(135deg, #0f172a, #1e293b);
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  --glass-blur: blur(10px);
+  --text-color: #ffffff;
+  --accent: #ff6ec4;
+  --accent-2: #7873f5;
+  --text-muted: #cbd5e1;
+  --border-glow: 2px solid rgba(255, 110, 196, 0.5);
+}
+
+body.light {
+  --bg-main: linear-gradient(135deg, #ffffff, #f1f5f9);
+  --bg-glass: rgba(255, 255, 255, 0.8);
+  --text-color: #1e293b;
+  --accent: #3b82f6;
+  --accent-2: #8b5cf6;
+  --text-muted: #475569;
+  --border-glow: 2px solid rgba(59, 130, 246, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg-main);
+  color: var(--text-color);
+  transition: all 0.4s ease;
+  overflow-x: hidden;
+}
+
+header {
+  text-align: center;
+  padding: 5rem 1rem;
+  position: relative;
+  background: transparent;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--accent-2);
+}
+
+.hero {
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-blur);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  max-width: 800px;
+  margin: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  background: linear-gradient(to right, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  background: linear-gradient(to right, var(--accent), var(--accent-2));
+  border: none;
+  padding: 1rem 2.5rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(255, 110, 196, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+}
+
+.cube {
+  width: 150px;
+  height: 150px;
+  margin: 3rem auto;
+  perspective: 1000px;
+}
+
+.cube-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotate 12s infinite linear;
+}
+
+.cube-face {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.front { transform: translateZ(75px); }
+.back { transform: rotateY(180deg) translateZ(75px); }
+.right { transform: rotateY(90deg) translateZ(75px); }
+.left { transform: rotateY(-90deg) translateZ(75px); }
+.top { transform: rotateX(90deg) translateZ(75px); }
+.bottom { transform: rotateX(-90deg) translateZ(75px); }
+
+@keyframes rotate {
+  from { transform: rotateX(0deg) rotateY(0deg); }
+  to { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+.services {
+  padding: 4rem 2rem;
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-blur);
+  border-radius: 2rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.services h2 {
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  color: var(--accent);
+}
+
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.service-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: var(--border-glow);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-10px) scale(1.03);
+  border-color: var(--accent);
+}
+
+.contact {
+  padding: 4rem 2rem;
+  background: var(--bg-main);
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+.contact form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  background: var(--bg-glass);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: var(--glass-blur);
+}
+
+.contact input,
+.contact textarea {
+  padding: 1rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-color);
+}
+
+.contact button {
+  padding: 1rem;
+  background: linear-gradient(to right, var(--accent), var(--accent-2));
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.contact button:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  padding: 2rem;
+  text-align: center;
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+}
